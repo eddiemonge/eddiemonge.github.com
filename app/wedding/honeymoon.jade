@@ -1,0 +1,60 @@
+- var pageTitle = 'Honeymoon'
+doctype html
+html(lang="en")
+  include templates/_head
+  body
+    include templates/_nav
+
+    .page-topper
+      h1 The Honeymoon
+
+      .container
+        .left-image
+          img.img-thumbnail.pull-left( src="images/hawaii.jpg" )
+          .description
+            h3 Bahamas then Disneyworld
+            p We would love to take a cruise to the Bahamas then go to Disneyworld!
+
+    .container
+      .jumbotron
+        h4 Greetings
+        p Hi Friends and Family,
+        p We are honored you will share in our special day. Your presence is our gift!
+        p We're lucky to already have a home full of everything we need. So here, as an alternative to buying us a gift, you can contribute to our dream honeymoon.
+        p Thanks for visiting, and we can't wait to see you on our big day!
+
+      .jumbotron
+        p Eddie decided to make this page himself so, like all his projects, its coming together at his pace (slow!). While we work on adding the things we would like to do, we have put up a general donate button. Soon though, you will be able to choose what you would like your gift to apply to for our honeymoon.
+
+        p
+          | Gifts are being handled through Paypal. You can use your Paypal funds or any major credit card to make a donation. Click Donate to go to the payment page. The default donation is set to $20 but you can change the quantity to donate more.
+          em
+            |  *Note* You do
+            strong  not
+            |  need to sign up for a Paypal account to donate.
+        form(
+          action="https://www.paypal.com/cgi-bin/webscr"
+          method="post"
+          target="_top"
+        )
+          input(
+            type="hidden"
+            name="cmd"
+            value="_s-xclick"
+          )
+          input(
+            type="hidden"
+            name="hosted_button_id"
+            value="4NLLPC84YRWHS"
+          )
+          button.btn.btn-lg.btn-primary(
+            name="submit"
+            type="submit"
+          ) Donate to our Honeymoon
+          img(
+            alt=""
+            border="0"
+            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
+            width="1"
+            height="1"
+          )

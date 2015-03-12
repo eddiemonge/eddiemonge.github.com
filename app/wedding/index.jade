@@ -1,0 +1,32 @@
+- var pageTitle = 'Wedding'
+doctype html
+html(lang="en")
+  include templates/_head
+  body
+    include templates/_nav
+
+    .container
+      .jumbotron
+        h1 Wedding Details
+
+        .left-image
+          img.img-thumbnail.pull-left( src="images/toast.jpg" )
+          .description
+
+            p We will be posting more information about the wedding details soon. After the wedding, we will put images and other keepsakes from the wedding on here.
+
+            p
+              strong Ceremony and Reception Location:
+              br
+              | Cerritos Public Library
+              br
+              | 18025 Bloomfield Avenue
+              br
+              | Cerritos, CA  90703
+
+    .container
+      .jumbotron
+        .row
+          img.col-md-3.img-thumbnail.pull-left( src="images/bride-ears.jpg" )
+          img.col-md-4.img-thumbnail.pull-left( src="images/jealous.jpg" )
+          img.col-md-5.img-thumbnail.pull-left( src="images/the-ring.jpg" )
