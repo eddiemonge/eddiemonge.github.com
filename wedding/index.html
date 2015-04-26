@@ -4,11 +4,16 @@
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-382961-11');ga('send','pageview');</script>  <body> <div class="navbar navbar-default"> <div class=container> <div class=navbar-header><a class=navbar-brand>Eddie And Amanda's Wedding</a></div> <ul class="nav navbar-nav navbar-right"> <li><a href=index.html>Wedding</a></li> <li><a href=honeymoon.html>Honeymoon</a></li> <li><a onclick="return openSubscribe()">Get Updates</a></li> </ul> </div> </div> <div class=page-topper> <h1>Wedding Details<br><span class=small>June 13, 2005</span></h1> <div class=container> <div class=left-image><img src=images/toast.jpg class="img-thumbnail pull-left"> <div class=description> <p>After the wedding, we will put images and other keepsakes from the wedding on here.</p> <p><a href=honeymoon.html class="btn btn-primary">See Our Honeymoon Details</a></p> </div> </div> </div> </div> <div class=container> <div class=jumbotron> <h2 class=center>Engagement Day Photos</h2> <div class=row><img src=images/jealous.jpg class="col-md-4 img-thumbnail pull-left"><img src=images/bride-ears.jpg class="col-md-3 img-thumbnail pull-left"><img src=images/the-ring.jpg class="col-md-5 img-thumbnail pull-left"></div> </div> </div> <script></script> <script>var loaded=false;
-      if(!loaded){
-        var sc = document.createElement('script');
-        sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
-        sc['data-dojo-config']="usePlainJson:true,isDebug:false"
-        document.body.appendChild(sc);
-        loaded=true;
-      }
-      var openSubscribe=function(){document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});return false;};</script>  
+      var openSubscribe=function(){
+        document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        if(!loaded){
+          var sc = document.createElement('script');
+          sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
+          sc['data-dojo-config']="usePlainJson:true,isDebug:false"
+          sc.onload=function(){require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});
+          };
+          document.body.appendChild(sc);
+          loaded=true;
+        }
+        return false;
+      };</script>  

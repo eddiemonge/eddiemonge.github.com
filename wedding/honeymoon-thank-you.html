@@ -4,11 +4,16 @@
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-382961-11');ga('send','pageview');</script>  <body class=honeymoon> <div class="navbar navbar-default"> <div class=container> <div class=navbar-header><a class=navbar-brand>Eddie And Amanda's Wedding</a></div> <ul class="nav navbar-nav navbar-right"> <li><a href=index.html>Wedding</a></li> <li><a href=honeymoon.html>Honeymoon</a></li> <li><a onclick="return openSubscribe()">Get Updates</a></li> </ul> </div> </div> <div class=page-topper> <h1>Thank You</h1> </div> <div class=container> <div class=jumbotron> <div class=left-image> <div class="img-thumbnail pull-left"><img src=images/hawaii.jpg></div> </div> <div class=description> <h3>We Appreciate Your Love and Support</h3> <p>Thank you for your gift. It will bring that much more happiness on our honeymoon as we start our new married life together.</p> <p><a href=index.html>&laquo; Back to the wedding page</a></p> </div> </div> </div> <script></script> <script>var loaded=false;
-      if(!loaded){
-        var sc = document.createElement('script');
-        sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
-        sc['data-dojo-config']="usePlainJson:true,isDebug:false"
-        document.body.appendChild(sc);
-        loaded=true;
-      }
-      var openSubscribe=function(){document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});return false;};</script>  
+      var openSubscribe=function(){
+        document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        if(!loaded){
+          var sc = document.createElement('script');
+          sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
+          sc['data-dojo-config']="usePlainJson:true,isDebug:false"
+          sc.onload=function(){require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});
+          };
+          document.body.appendChild(sc);
+          loaded=true;
+        }
+        return false;
+      };</script>  
