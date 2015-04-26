@@ -2,59 +2,81 @@
 doctype html
 html(lang="en")
   include templates/_head
-  body
+  body(
+    ng-app="a"
+    ng-controller="b"
+    ng-class="{'body-padding':cart.qty>0}"
+  )
     include templates/_nav
 
     .page-topper
-      h1 The Honeymoon
-
-      .container
-        .left-image
-          img.img-thumbnail.pull-left( src="images/hawaii.jpg" )
-          .description
-            h3 Bahamas then Disneyworld
-            p We would love to take a cruise to the Bahamas then go to Disneyworld!
+      h1
+        | The Honeymoon
+        br
+        small  Bahamas and Disneyworld: June 14-22
 
     .container
       .jumbotron
-        h4 Greetings
-        p Hi Friends and Family,
-        p We are honored you will share in our special day. Your presence is our gift!
-        p We're lucky to already have a home full of everything we need. So here, as an alternative to buying us a gift, you can contribute to our dream honeymoon.
-        p Thanks for visiting, and we can't wait to see you on our big day!
+        .left-image
+          img.img-thumbnail.pull-left( src="images/hawaii.jpg" )
 
-      .jumbotron
-        p Eddie decided to make this page himself so, like all his projects, its coming together at his pace (slow!). While we work on adding the things we would like to do, we have put up a general donate button. Soon though, you will be able to choose what you would like your gift to apply to for our honeymoon.
+          h4 Greetings Friends and Family,
+          p Thank you for sharing in our special day, either in person or from afar. Your support and well wishes mean a lot to us.
+          p Your support of our marriage is gift enough, but if you do wish to buy us something, a contribution towards our dream honeymoon would be appreciated.
 
-        p
-          | Gifts are being handled through Paypal. You can use your Paypal funds or any major credit card to make a donation. Click Donate to go to the payment page. The default donation is set to $20 but you can change the quantity to donate more.
-          em
-            |  *Note* You do
-            strong  not
-            |  need to sign up for a Paypal account to donate.
-        form(
-          action="https://www.paypal.com/cgi-bin/webscr"
-          method="post"
-          target="_top"
-        )
-          input(
-            type="hidden"
-            name="cmd"
-            value="_s-xclick"
-          )
-          input(
-            type="hidden"
-            name="hosted_button_id"
-            value="4NLLPC84YRWHS"
-          )
-          button.btn.btn-lg.btn-primary(
+      .row.gallery
+        .col-sm-4.col-md-4.col-lg-4( ng-repeat="item in items" )
+          .thumbnail
+            img.img-rounded( ng-src="images/{{item.image}}.jpg" )
+            .caption
+              h3 {{item.caption}}
+              p {{item.description}}
+              hr
+              p.row.cart-items
+                span.strong.col-sm-4.col-md-4.col-lg-4 ${{item.price}} each
+                span.strong.col-sm-4.col-md-4.col-lg-4 {{item.quantity}}&nbsp;remaining
+                span.col-sm-4.col-md-4.col-lg-4
+                  select.form-control(
+                    ng-change="doThis()"
+                    ng-model="registry.items[item.name]"
+                    ng-class="{selected:registry.items[item.name]>0}"
+                  )
+                    option( disabled, selected, value="0" ) Give...
+                    option( ng-repeat="q in item.select" ) {{q}}
+
+    .cart-bar.navbar.navbar-default.navbar-fixed-bottom( ng-show="cart.qty>0")
+      form(
+        action="https://www.paypal.com/cgi-bin/webscr"
+        method="post"
+        target="_top"
+      )
+        .center
+          | {{cart.qty}} gift{{cart.qty>1?'s':''}} totalling
+          span.price  ${{cart.total}} 
+          button.btn.btn-lg.btn-default(
             name="submit"
             type="submit"
-          ) Donate to our Honeymoon
-          img(
-            alt=""
-            border="0"
-            src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif"
-            width="1"
-            height="1"
-          )
+            title="Gifts are being handled through Paypal. You can use your Paypal funds or any major credit card to make a donation. You do not need to sign up for a PayPal account to send a gift. There is an option to pay without signing up on the next screen."
+          ) Continue
+
+          input( type="hidden", name="cmd", value="_cart" )
+          input( type="hidden", name="upload", value="1" )
+          //- input( type="hidden", name="_donations", value="1" )
+          input( type="hidden", name="return", value="http://eddiemonge.com/wedding/honeymoon-thank-you.html" )
+          input( type="hidden", name="business", value="eddie@eddiemonge.com" )
+          input( type="hidden", name="no_shipping", value="1" )
+          input( type="hidden", name="cn", value="Add a gift note for us" )
+          input( type="hidden", name="page_style", value="primary" )
+          input( type="hidden", name="image_url", value="http://eddiemonge.com/wedding/images/logo.png" )
+          input( type="hidden", name="cpp_cart_border_color", value="0482af" )
+          input( type="hidden", name="cbt", value="Back to Honeymoon Site" )
+
+
+          span( ng-hide="true", ng-repeat="i in cart.items" )
+            input( type="hidden", name="item_name_{{$index+1}}", value="{{i.name}}" )
+            input( type="hidden", name="amount_{{$index+1}}", value="{{i.price}}" )
+            input( type="hidden", name="quantity_{{$index+1}}", value="{{i.qty}}" )
+
+    script( src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" )
+    script( src="scripts/registry.js" )
+    script( src="scripts/main.js" )
