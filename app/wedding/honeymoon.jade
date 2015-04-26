@@ -1,8 +1,9 @@
 - var pageTitle = 'Honeymoon'
+- var wedding = true
 doctype html
 html(lang="en")
   include templates/_head
-  body(
+  body.honeymoon(
     ng-app="a"
     ng-controller="b"
     ng-class="{'body-padding':cart.qty>0}"

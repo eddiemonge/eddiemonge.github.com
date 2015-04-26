@@ -1,8 +1,9 @@
 - var pageTitle = 'Thank You'
+- var wedding = true
 doctype html
 html(lang="en")
   include templates/_head
-  body
+  body.honeymoon
     include templates/_nav
 
     .page-topper
@@ -12,7 +13,9 @@ html(lang="en")
     .container
       .jumbotron
         .left-image
-          img.img-thumbnail.pull-left( src="images/hawaii.jpg" )
-
-          h4 We Appreciate Your Love and Support
+          .img-thumbnail.pull-left
+            img( src="images/hawaii.jpg" )
+        .description
+          h3 We Appreciate Your Love and Support
           p Thank you for your gift. It will bring that much more happiness on our honeymoon as we start our new married life together.
+          p: a( href="index.html" ) &laquo; Back to the wedding page
