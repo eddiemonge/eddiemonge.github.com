@@ -2,11 +2,16 @@ script(
 )
 script.
   var loaded=false;
-  if(!loaded){
-    var sc = document.createElement('script');
-    sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
-    sc['data-dojo-config']="usePlainJson:true,isDebug:false"
-    document.body.appendChild(sc);
-    loaded=true;
-  }
-  var openSubscribe=function(){document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});return false;};
+  var openSubscribe=function(){
+    document.cookie='MCEvilPopupClosed=no;Path=/;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    if(!loaded){
+      var sc = document.createElement('script');
+      sc.src="//s3.amazonaws.com/downloads.mailchimp.com/js/signup-forms/popup/embed.js";
+      sc['data-dojo-config']="usePlainJson:true,isDebug:false"
+      sc.onload=function(){require(["mojo/signup-forms/Loader"],function(L){L.start({"baseUrl":"mc.us10.list-manage.com","uuid":"f27fde61e73469239a8e9646f","lid":"8f4404b0dc"})});
+      };
+      document.body.appendChild(sc);
+      loaded=true;
+    }
+    return false;
+  };
