@@ -91,6 +91,40 @@ select.selected
 
   &:after
     color white
-    content: '✖'
+    content '✖'
     font-size 20px
     margin-left 5px
+
+.details-holder
+  clear both
+  overflow auto
+
+.details
+  margin 5px 0
+  padding 5px 0
+  width 49%
+
+  &, *
+    box-sizing border-box
+
+  img
+    max-height 170px
+    max-width 49%
+    vertical-align top
+
+  ul
+    display inline-block
+    padding-left 20px
+    max-width 49%
+
+    ul
+      max-width 100%
+
+.first
+  margin-top 10px
+
+  .page-topper
+    padding 15px
+
+  h2
+    margin-bottom 0
