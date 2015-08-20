@@ -155,15 +155,20 @@ module.exports = function (grunt) {
             cwd: 'site',
             dest: 'dist',
             src: [ '*.*', 'CNAME' ]
-          },
-          {
-            dot: true,
-            expand: true,
-            cwd: '.',
-            dest: 'dist',
-            src: [ '.git/**/*{,*}' ]
           }
         ]
+      }
+    },
+
+
+    buildcontrol: {
+      dist: {
+        options: {
+          remote: 'git@github.com:eddiemonge/eddiemonge.github.com.git',
+          branch: 'master',
+          commit: true,
+          push: true
+        }
       }
     }
   });
@@ -190,4 +195,9 @@ module.exports = function (grunt) {
     'copy',
     'htmlmin'
   ]);
+
+  grunt.registerTask('deploy', [
+    'default',
+    'buildcontrol'
+  ])
 };
