@@ -1,37 +1,11 @@
-doctype html
-html(lang="en")
-  head
-    meta( charset="utf-8" )
-    title= pageTitle
-    meta( name="description", content="Eddie and Amanda's Honeymoon" )
-    meta( name="viewport", content="width=device-width" )
-    link( rel="shortcut icon", href="/favicon.ico" )
-    link( rel="stylesheet", href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" )
+- var pageTitle = 'Pizza and Lightsabers'
+include assets/templates/_head
 
-    link( rel="stylesheet", href="wedding/styles/bootstrap.css" )
-    link( rel="stylesheet", href="wedding/styles/main.css" )
+.container
+  .jumbotron
+    img.img-thumbnail.pull-left( src="/assets/images/profile.jpg" )
+    h1 I am Eddie
 
-    script.
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-382961-11');ga('send','pageview');
+    p.lead Nothing to see here yet.
 
-    script( src="scripts/main.js" )
-  body
-    .navbar.navbar-default
-      .container
-        .navbar-header
-          a.navbar-brand Eddie Monge Jr.
-        ul.nav.navbar-nav.navbar-right
-          li: a( href="index.html" ) Home
-          li: a( href="wedding" ) Wedding
-
-    .container
-      .jumbotron
-        h1 I am Eddie
-
-        p.lead Nothing to see here yet. You can visit my wedding page at: 
-          a( href="wedding" ) Eddie And Amanda's Wedding
+include assets/templates/_foot

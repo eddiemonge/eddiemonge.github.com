@@ -1,70 +1,18 @@
 - var pageTitle = 'Wedding'
 - var wedding = true
-doctype html
-html(lang="en")
-  include templates/_head
-  body
-    include templates/_nav
+include templates/_head
 
-    .container.first
-      .page-topper
-        h2.center Our Wedding
+.page-topper
+  h1
+    | The Wedding
+    br
+    small Cerritos, CA: June 13
 
-    .container
-      .panel.panel-default
-        .panel-heading Wedding Details
-        .panel-body
-          p Date:
-            strong  June 13, 2005
-          p Location:
-            strong  Cerritos, CA
+.container
+  .jumbotron
+    .left-image
+      h4 Greetings Friends and Family,
+      p Thank you for sharing in our special day, either in person or from afar. Your support and well wishes meant a lot to us.
+      p We have a lot of pictures from the wedding and we have put them on Facebook.
 
-          p Day of Details:
-          
-          ul
-            li 6:00pm Doors open
-
-          .details-holder.panel
-            .details.pull-left
-              img.img-thumbnail( src="images/ceremony.jpg" )
-              ul
-                li 6:30pm Ceremony begins
-                li 7:00pm (or around there) Cocktail hour(-ish)
-                li 7:30-8:00 Reception seating
-
-            .details.pull-left
-              img.img-thumbnail( src="images/reception.jpg" )
-              ul
-                li 
-                  | 8:00-10:50 Reception
-                  ul
-                    li Wedding Party Introduction
-                    li Dinner
-                    li Toasts
-                    li First Dance
-                    li Cake(-ish) things
-                    li Dancing
-          ul
-            li 10:50 Newly wed send off
-
-    .container
-      .jumbotron
-        .left-image
-          img.img-thumbnail.pull-left( src="images/toast.jpg" )
-          .description
-            p After the wedding, we will put images and other keepsakes from the wedding on here.
-
-            p
-              a.btn.btn-primary( href="honeymoon.html" )
-                | See Our Honeymoon Details
-
-    .container
-      .jumbotron
-        h2.center Engagement Day Photos
-        .row
-          img.col-md-4.img-thumbnail.pull-left( src="images/jealous.jpg" )
-          img.col-md-3.img-thumbnail.pull-left( src="images/bride-ears.jpg" )
-          img.col-md-5.img-thumbnail.pull-left( src="images/the-ring.jpg" )
-
-
-    include templates/_foot
+include templates/_foot
