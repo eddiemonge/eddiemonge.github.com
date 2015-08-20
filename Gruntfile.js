@@ -138,7 +138,7 @@ module.exports = function (grunt) {
             cwd: 'app',
             dest: 'dist',
             src: [
-              '**/*.{js,ico,png,txt,jpg}',
+              '**/*.{js,ico,png,txt,jpg}'
             ]
           },
           {
@@ -147,8 +147,21 @@ module.exports = function (grunt) {
             cwd: '.tmp',
             dest: 'dist',
             src: [
-              '**/*.css',
+              '**/*.css'
             ]
+          },
+          {
+            expand: true,
+            cwd: 'site',
+            dest: 'dist',
+            src: [ '*.*', 'CNAME' ]
+          },
+          {
+            dot: true,
+            expand: true,
+            cwd: '.',
+            dest: 'dist',
+            src: [ '.git/**/*{,*}' ]
           }
         ]
       }
